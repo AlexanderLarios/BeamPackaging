@@ -6,8 +6,8 @@ require 'boxing/kata/version'
 Gem::Specification.new do |spec|
   spec.name          = "boxing-kata-ruby"
   spec.version       = Boxing::Kata::VERSION
-  spec.authors       = ["Jim Kirkbride"]
-  spec.email         = ["jim.kirkbride@beam.dental"]
+  spec.authors       = ["Jim Kirkbride, Alex Larios"]
+  spec.email         = ["jim.kirkbride@beam.dental, alarios91@gmail.com"]
 
   spec.summary       = "The Boxing Kata"
   spec.description   = "A kata in Ruby for determining how to box and ship dental perks."
@@ -29,4 +29,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency "rubocop" ,"~>0.92.0"
 end
