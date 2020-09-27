@@ -14,10 +14,11 @@ module Boxing
       def print_brush_prefs
 
         if !self.brushes.empty?
-          puts 'BRUSH PREFERENCES'
+          puts "\nBRUSH PREFERENCES"
           self.brushes.each do |key, value|
             puts "#{key}: #{value}"
           end
+          puts "\n"
         else
           puts 'Problem importing family brush preferences from CSV'
         end

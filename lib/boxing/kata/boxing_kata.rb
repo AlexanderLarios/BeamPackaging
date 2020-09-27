@@ -1,35 +1,48 @@
 require 'boxing/kata/version'
 require 'boxing/kata/family'
 require 'csv'
+require 'tty-prompt'
 
 module Boxing
   module Kata
 
-    def self.report
-      puts '***** BEAM BOXER *****'
-      puts "\n"
+    def self.cli
+      prompt = TTY::Prompt.new
+
+      puts '*** BEAM BOXER ***'
 
       # Check for input file stream
-      unless input_file?
-        puts 'Please add a file path and try again.'
-        puts 'Usage: ruby ./bin/boxing-kata <spec/fixtures/family_preferences.csv'
+      unless ARGV.length>0
+        puts 'Please add a valid file path argument.'
+        puts 'Usage: ruby ./bin/boxing-kata spec/fixtures/family_preferences.csv'
       else
-        # Import csv file to create family object
-        puts 'Importing CSV...'
-        puts "\n"
+        # Open CSV file for family's data and construct family object'
+        puts 'Importing CSV from command line argument...'
+        file = CSV.open(ARGV[0], headers:  true)
+        family = self.create_family(file)
+        file.close
 
-        # Parse CSV for family's data and construct family object
-        table = CSV.parse(STDIN, headers: true)
-        family = self.create_family(table)
+        # Print family's brush preferences
         family.print_brush_prefs
 
+        # Main menu functionality
+        loop do
+          puts "\n"
+          menu_response = prompt.select("*** BEAM BOXER ***", ['Family Brush Preferences','Starter Box', 'Refill Box', 'Exit'])
+          case menu_response
+            when 'Family Brush Preferences'
+              family.print_brush_prefs
+            when 'Starter Box'
+              puts 'Starter Box output Placeholder'
+
+            when 'Refill Box'
+              puts 'Refill Box output Placeholder'
+            when 'Exit'
+             exit_cli
+          end
+        end
       end
-    end
 
-    # Returns true if stream has a file and false if tied to tty
-    def self.input_file?
-
-      !STDIN.tty?
     end
 
     # Returns family object from CSV table
@@ -58,6 +71,11 @@ module Boxing
 
       family = Family.new(brushes: brush_color_count, effective_date: effective_date)
       return family
+    end
+
+    def self.exit_cli
+      puts 'Exiting Beam Boxer...'
+      exit(0)
     end
   end
 end

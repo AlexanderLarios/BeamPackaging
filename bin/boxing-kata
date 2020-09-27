@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "boxing/kata/boxing_kata"
+require 'bundler/setup'
+require 'boxing/kata/boxing_kata'
 
-Boxing::Kata::report
+Boxing::Kata::cli
