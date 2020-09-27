@@ -1,6 +1,43 @@
 The Boxing Kata
 =================
 
+Setup
+-----
+Using ruby 2.7.1
+
+```
+bundle install
+bin/rspec
+```
+
+Run the Beam Boxer CLI and add an argument with the csv file path. Example with provided csv below. Please note that '<' from original readme instructions has been removed to use ARGV for Ruby IO best practices.
+
+
+```
+ruby ./bin/boxing-kata spec/fixtures/family_preferences.csv
+```
+Technical Decision-Making and Dev Log
+----------
+**Day1 (9/25 - Friday Night):**  Read the ReadMe, Created Repo, added initial commit, updated gitIgnore, added Ruby Version file. Enjoyed some sweet work life balance.
+
+**Day2 (9/26 - Saturday Afternoon):**  Implemented the first two stories to get the family preferences from csv file and output their preferences.
+ Also implemented the Rspec tests around those workflows. Read up on next stories, so I can work on tech design in the back of my mind while I enjoyed some more of that sweet work life balance.
+
+**Day3 (9/27 - Sunday Early Afternoon):** Unrelated, but I got a toaster in the mail and got excited and made way too much avocado toast.
+I started to implement a box class and starter box work flow but noticed that the STDIN was not tied to a TTY (basically the terminal).
+This was preventing the implementation of a command line interface (CLI) using STDIN.gets calls because STDIN was still tied to the file input from the entry point instead of a TTY.
+After a bit of reading in the ruby best practice docs for IO and TTY I decided to fix the issue by updating the entry point to use ARGV command line arguments because it was a simple and well documented solution.
+At this point I also created a CLI scaffolding using TTY-Promt gem because it seemed like a pretty straight forward way to avoid some boiler plate CLI code. 
+The TTY-Promt gem also let me add some personal style to my standard CLI in the form of arrow key selectable menu options.
+
+**Day3 (9/27 - Sunday Afternoon):** Made this ReadMe and Dev Log section because I felt like I should probably point out and explain that I changed the default entry point into the program while it was fresh in my mind.
+
+
+
+
+
+Original Read Me Instructions
+------------
 Everyone who has dental insurance through Beam receives perks in the form of electric toothbrushes, replacement brush heads, and paste kits (toothpaste and floss). These perks are provided at the start of an insurance contract and then semi-frequently throughout the life of the contract. Each family member gets to choose a toothbrush color at enrollment, and will receive replacement toothbrush heads of the same color.
 
 This kata involves building the brains of a boxing system which will determine how the perks are boxed up and shipped. Given a family's brush color preferences, the system will generate a description of how the boxes should be filled. A shipping manager must be able to load data for a family, create starter and refill boxes, and perform other operations in real-time. The focus of this kata should be building a library for the system rather than a UI.
