@@ -56,6 +56,7 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('STARTER BOX')
         expect(STDOUT).to receive(:puts).with('2 blue brushes')
         expect(STDOUT).to receive(:puts).with('2 blue replacement heads')
+        expect(STDOUT).to receive(:puts).with('2 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
         expect(STDOUT).to receive(:puts).with('Shipping: Priority')
 
@@ -63,6 +64,7 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('STARTER BOX')
         expect(STDOUT).to receive(:puts).with('2 green brushes')
         expect(STDOUT).to receive(:puts).with('2 green replacement heads')
+        expect(STDOUT).to receive(:puts).with('2 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
         expect(STDOUT).to receive(:puts).with('Shipping: Priority')
 
@@ -70,6 +72,7 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('STARTER BOX')
         expect(STDOUT).to receive(:puts).with('2 pink brushes')
         expect(STDOUT).to receive(:puts).with('2 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('2 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
         expect(STDOUT).to receive(:puts).with('Shipping: Priority')
         family.generate_starter
@@ -83,6 +86,7 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('STARTER BOX')
         expect(STDOUT).to receive(:puts).with('2 blue brushes')
         expect(STDOUT).to receive(:puts).with('2 blue replacement heads')
+        expect(STDOUT).to receive(:puts).with('2 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
         expect(STDOUT).to receive(:puts).with('Shipping: Priority')
 
@@ -92,6 +96,7 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('1 green replacement heads')
         expect(STDOUT).to receive(:puts).with('1 pink brushes')
         expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('2 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
         expect(STDOUT).to receive(:puts).with('Shipping: Priority')
 
@@ -99,8 +104,9 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('STARTER BOX')
         expect(STDOUT).to receive(:puts).with('1 pink brushes')
         expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('1 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
-        expect(STDOUT).to receive(:puts).with('Shipping: First')
+        expect(STDOUT).to receive(:puts).with('Shipping: Priority')
         family.generate_starter
       end
     end
@@ -112,8 +118,9 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('STARTER BOX')
         expect(STDOUT).to receive(:puts).with('1 blue brushes')
         expect(STDOUT).to receive(:puts).with('1 blue replacement heads')
+        expect(STDOUT).to receive(:puts).with('1 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2019-10-31')
-        expect(STDOUT).to receive(:puts).with('Shipping: First')
+        expect(STDOUT).to receive(:puts).with('Shipping: Priority')
         family.generate_starter
       end
     end
@@ -137,15 +144,16 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('REFILL BOX')
         expect(STDOUT).to receive(:puts).with('2 blue replacement heads')
         expect(STDOUT).to receive(:puts).with('2 green replacement heads')
+        expect(STDOUT).to receive(:puts).with('4 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
-        expect(STDOUT).to receive(:puts).with('Shipping: First')
+        expect(STDOUT).to receive(:puts).with('Shipping: Priority')
 
         expect(STDOUT).to receive(:puts).with("\n")
         expect(STDOUT).to receive(:puts).with('REFILL BOX')
         expect(STDOUT).to receive(:puts).with('2 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('2 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
-        expect(STDOUT).to receive(:puts).with('Shipping: First')
-
+        expect(STDOUT).to receive(:puts).with('Shipping: Priority')
         family.generate_refill
       end
     end
@@ -159,25 +167,14 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with('2 blue replacement heads')
         expect(STDOUT).to receive(:puts).with('1 green replacement heads')
         expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('4 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
-        expect(STDOUT).to receive(:puts).with('Shipping: First')
+        expect(STDOUT).to receive(:puts).with('Shipping: Priority')
 
         expect(STDOUT).to receive(:puts).with("\n")
         expect(STDOUT).to receive(:puts).with('REFILL BOX')
         expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
-        expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
-        expect(STDOUT).to receive(:puts).with('Shipping: First')
-        family.generate_refill
-      end
-    end
-
-    context 'when there is a single brush preference' do
-      it 'prints the refill boxes for family' do
-        family = Boxing::Kata::Family.new(brushes: {'pink'=>1}, effective_date: Date.parse('2019-10-31'))
-        family.generate_starter
-        expect(STDOUT).to receive(:puts).with("\n")
-        expect(STDOUT).to receive(:puts).with('REFILL BOX')
-        expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('1 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
         expect(STDOUT).to receive(:puts).with('Shipping: First')
         family.generate_refill
@@ -191,6 +188,21 @@ RSpec.describe Boxing::Kata::Family do
         expect(STDOUT).to receive(:puts).with("\n")
         expect(STDOUT).to receive(:puts).with('REFILL BOX')
         expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('1 paste kits')
+        expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
+        expect(STDOUT).to receive(:puts).with('Shipping: First')
+        family.generate_refill
+      end
+    end
+
+    context 'when there is a single brush preference' do
+      it 'prints the refill boxes for family' do
+        family = Boxing::Kata::Family.new(brushes: {'pink'=>1}, effective_date: Date.parse('2019-10-31'))
+        family.generate_starter
+        expect(STDOUT).to receive(:puts).with("\n")
+        expect(STDOUT).to receive(:puts).with('REFILL BOX')
+        expect(STDOUT).to receive(:puts).with('1 pink replacement heads')
+        expect(STDOUT).to receive(:puts).with('1 paste kits')
         expect(STDOUT).to receive(:puts).with('Schedule: 2020-01-29, 2020-04-28, 2020-07-27, 2020-10-25')
         expect(STDOUT).to receive(:puts).with('Shipping: First')
         family.generate_refill

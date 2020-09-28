@@ -38,14 +38,21 @@ module Boxing
 
       # Generate shipping class.
       # if its at least 16oz its priority if its less than that its first class
-      # Brush = 9oz
-      # Brush Head = 1 ]oz
+
       def print_shipping
-        shipping_string = 'Shipping: '
+        # Item weights in onces
+        brush = 9
+        brush_head = 1
+        paste_kit = 7.6
+        shipping_string = 'Shipping:' + ' '
         if @is_starter
-          @weight = count*10
+          # 9oz + 1oz + 7.6oz = 17.6oz
+          starter_set_weight = brush + brush_head + paste_kit
+          @weight = count*starter_set_weight
         else
-          @weight = count*1
+          # 1oz + 7.6oz = 8.6oz
+          refill_set_weight = brush_head + paste_kit
+          @weight = count*refill_set_weight
         end
         if @weight >= 16
           shipping_string += 'Priority'
@@ -71,6 +78,7 @@ module Boxing
             puts "#{value} #{key} replacement heads"
           end
         end
+        puts count.to_s + ' ' + 'paste kits'
         print_schedule
         print_shipping
       end
