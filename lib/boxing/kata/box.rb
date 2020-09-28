@@ -10,6 +10,7 @@ module Boxing
         @box_colors = Hash.new
         @count = 0
         @effective_date = effective_date
+        @weight
 
       end
 
@@ -28,11 +29,30 @@ module Boxing
       def print_schedule
         schedule_string = 'Schedule: '
         if @is_starter
-          schedule_string = schedule_string + @effective_date.to_s
+          schedule_string += @effective_date.to_s
         else
-          schedule_string = schedule_string + (@effective_date + 90).to_s + ", " + (@effective_date + 180).to_s + ", " + (@effective_date + 270).to_s + ", " + (@effective_date + 360).to_s
+          schedule_string += (@effective_date + 90).to_s + ", " + (@effective_date + 180).to_s + ", " + (@effective_date + 270).to_s + ", " + (@effective_date + 360).to_s
         end
         puts schedule_string
+      end
+
+      # Generate shipping class.
+      # if its at least 16oz its priority if its less than that its first class
+      # Brush = 9oz
+      # Brush Head = 1 ]oz
+      def print_shipping
+        shipping_string = 'Shipping: '
+        if @is_starter
+          @weight = count*10
+        else
+          @weight = count*1
+        end
+        if @weight >= 16
+          shipping_string += 'Priority'
+        else
+          shipping_string += 'First'
+        end
+        puts shipping_string
       end
 
       # Prints the contents of the box
@@ -52,6 +72,7 @@ module Boxing
           end
         end
         print_schedule
+        print_shipping
       end
     end
   end
