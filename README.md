@@ -35,8 +35,10 @@ The TTY-Prompt gem also let me add some personal style to my standard CLI in the
 Made this ReadMe and Dev Log section because I felt like I should probably point out and explain why I changed the default entry point into the program while it was fresh in my mind.
 
 **Day3 (9/27 - Sunday Evening):**
-Implemented the functionality and tests for generate starter box and generate refill box work flows. It was pretty straight forward and used the family as a pseudo box factory class to keep the code dry. Added some extra CSV files to spec/fixtures for exploratory testing and looking for things that the Rspecs might miss with the CLI. Having a lot of fun with this project and writing pure ruby for a change.
+Implemented the functionality and tests for generate starter box and generate refill box work flows. It was pretty straight forward and used the family as a pseudo box factory class to keep the code dry. Added some extra CSV files to spec/fixtures for exploratory testing and looking for things that the Rspecs might miss with the CLI. Having a lot of fun with this project and writing pure ruby for a change.]
 
+**Day3 (9/27 - Sunday Night):**
+Implemented the shipping schedule story for starter and refill box work flows and the corresponding Rspec tests. Nice when the pieces fall into place pretty easily. Seems like its down hill from here.
 
 
 Original Read Me Instructions
