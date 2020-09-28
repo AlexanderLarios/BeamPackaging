@@ -1,17 +1,15 @@
 require 'boxing/kata/version'
 require 'boxing/kata/family'
+require 'boxing/kata/box'
 require 'csv'
 require 'tty-prompt'
 
 module Boxing
   module Kata
-
     def self.cli
       prompt = TTY::Prompt.new
-
       puts '*** BEAM BOXER ***'
-
-      # Check for input file stream
+      # Check for command line argument
       unless ARGV.length>0
         puts 'Please add a valid file path argument.'
         puts 'Usage: ruby ./bin/boxing-kata spec/fixtures/family_preferences.csv'
@@ -24,22 +22,24 @@ module Boxing
 
         # Print family's brush preferences
         family.print_brush_prefs
-
         # Main menu functionality
         loop do
-          puts "\n"
           menu_response = prompt.select("*** BEAM BOXER ***", ['Family Brush Preferences','Starter Box', 'Refill Box', 'Exit'])
           case menu_response
             when 'Family Brush Preferences'
               family.print_brush_prefs
             when 'Starter Box'
-              puts 'Starter Box output Placeholder'
-
+              family.generate_starter
             when 'Refill Box'
-              puts 'Refill Box output Placeholder'
+              family.generate_refill
             when 'Exit'
              exit_cli
+          # Just in case the menu selector / TTY-Prompt is having issues this will escape the loop.
+          else
+            puts 'Something went wrong. Please try again.'
+            exit(0)
           end
+          puts "\n"
         end
       end
 

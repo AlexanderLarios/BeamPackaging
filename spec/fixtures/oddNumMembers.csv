@@ -1,0 +1,6 @@
+id,name,brush_color,primary_insured_id,contract_effective_date
+2,Kirk,pink,,2019-10-31
+3,Spock,pink,2,
+4,Picard,pink,2,
+5,Worf,green,2,
+6,Data,blue,2,
