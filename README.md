@@ -40,6 +40,7 @@ Implemented the functionality and tests for generate starter box and generate re
 **Day3 (9/27 - Sunday Night):**
 Implemented the shipping schedule story for starter and refill box work flows and the corresponding Rspec tests. Nice when the pieces fall into place pretty easily. Seems like its down hill from here.
 
+Implemented shipping calculation for boxes based on weight and corresponding Rspec tests.
 
 Original Read Me Instructions
 ------------
