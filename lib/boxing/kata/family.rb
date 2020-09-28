@@ -49,7 +49,7 @@ module Boxing
         else
           capacity = 4 # Brush heads
         end
-        box = Box.new(is_starter)
+        box = Box.new(is_starter: is_starter, effective_date: @effective_date)
         @brushes.each do |key, value|
           color_count = "#{value}".to_i
           while color_count > 0 do
@@ -57,7 +57,7 @@ module Boxing
             # Check if box is full
             if box.count == capacity
               box.print_contents
-              box = Box.new(is_starter)
+              box = Box.new(is_starter: is_starter, effective_date: @effective_date)
             end
             color_count -=1
           end
