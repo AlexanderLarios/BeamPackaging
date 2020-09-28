@@ -20,19 +20,22 @@ Technical Decision-Making and Dev Log
 ----------
 **Day1 (9/25 - Friday Night):**  Read the ReadMe, Created Repo, added initial commit, updated gitIgnore, added Ruby Version file. Enjoyed some sweet work life balance.
 
-**Day2 (9/26 - Saturday Afternoon):**  Implemented the first two stories to get the family preferences from csv file and output their preferences.
- Also implemented the Rspec tests around those workflows. Read up on next stories, so I can work on tech design in the back of my mind while I enjoyed some more of that sweet work life balance.
+**Day2 (9/26 - Saturday Afternoon):**
+Implemented the first two stories to get the family preferences from csv file and output their preferences.
+ Also implemented the Rspec tests around those work flows. Read up on the next stories, so I can work on tech design in the back of my mind while I enjoyed some more of that sweet work life balance.
 
-**Day3 (9/27 - Sunday Early Afternoon):** Unrelated, but I got a toaster in the mail and got excited and made way too much avocado toast.
+**Day3 (9/27 - Sunday Early Afternoon):**
 I started to implement a box class and starter box work flow but noticed that the STDIN was not tied to a TTY (basically the terminal).
 This was preventing the implementation of a command line interface (CLI) using STDIN.gets calls because STDIN was still tied to the file input from the entry point instead of a TTY.
 After a bit of reading in the ruby best practice docs for IO and TTY I decided to fix the issue by updating the entry point to use ARGV command line arguments because it was a simple and well documented solution.
-At this point I also created a CLI scaffolding using TTY-Promt gem because it seemed like a pretty straight forward way to avoid some boiler plate CLI code. 
-The TTY-Promt gem also let me add some personal style to my standard CLI in the form of arrow key selectable menu options.
+At this point I also created a CLI scaffolding using TTY-Prompt gem because it seemed like a pretty straight forward way to avoid some boiler plate CLI code. 
+The TTY-Prompt gem also let me add some personal style to my standard CLI in the form of arrow key selectable menu options.
 
-**Day3 (9/27 - Sunday Afternoon):** Made this ReadMe and Dev Log section because I felt like I should probably point out and explain that I changed the default entry point into the program while it was fresh in my mind.
+**Day3 (9/27 - Sunday Afternoon):**
+Made this ReadMe and Dev Log section because I felt like I should probably point out and explain why I changed the default entry point into the program while it was fresh in my mind.
 
-
+**Day3 (9/27 - Sunday Evening):**
+Implemented the functionality and tests for generate starter box and generate refill box work flows. It was pretty straight forward and used the family as a pseudo box factory class to keep the code dry. Added some extra CSV files to spec/fixtures for exploratory testing and looking for things that the Rspecs might miss with the CLI. Having a lot of fun with this project and writing pure ruby for a change.
 
 
 
