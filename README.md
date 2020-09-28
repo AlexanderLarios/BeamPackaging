@@ -22,7 +22,7 @@ Technical Decision-Making and Dev Log
 
 **Day2 (9/26 - Saturday Afternoon):**
 Implemented the first two stories to get the family preferences from csv file and output their preferences.
- Also implemented the Rspec tests around those work flows. Read up on the next stories, so I can work on tech design in the back of my mind while I enjoyed some more of that sweet work life balance.
+ Implemented the Rspec tests around those work flows. Read up on the next stories, so I can work on tech design in the back of my mind while I enjoyed some more of that sweet work life balance.
 
 **Day3 (9/27 - Sunday Early Afternoon):**
 I started to implement a box class and starter box work flow but noticed that the STDIN was not tied to a TTY (basically the terminal).
@@ -41,6 +41,12 @@ Implemented the functionality and tests for generate starter box and generate re
 Implemented the shipping schedule story for starter and refill box work flows and the corresponding Rspec tests. Nice when the pieces fall into place pretty easily. Seems like its down hill from here.
 
 Implemented shipping calculation for boxes based on weight and corresponding Rspec tests.
+
+Implemented paste kits and corresponding Rspec tests. Assumed this did not impact how much could fit in each box as it was not mentioned.
+
+**Conclusion:** I enjoyed implementing this project. Feel free to reach out to me with feedback. There is a short list of additional features I would like to add to the project, but I am out of time for this weekend. Here are some of those items: Error Handling, CSV validation and rescue, CSV batching using ARGV arguments, add constants and i18n, DB input.
+ 
+ If you made it this far, thanks for taking the time to check out my work!
 
 Original Read Me Instructions
 ------------
